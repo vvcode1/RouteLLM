@@ -1,0 +1,61 @@
+# macOS and editor metadata
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Temporary files and logs
+tmp/
+temp/
+*.log
+runs/
+wandb/
+
+# Generated data and downloaded archives
+data/
+mail_scraper/data/
+bgp_fetcher/cache/
+bgp_fetcher/updates/
+bgp_results/
+*.mbox
+*.mrt
+*.bz2
+*.gz
+
+# Training and experiment outputs
+artifacts/
+output/
+outputs/
+routing_adapter/output/
+tokenizer_output/
+
+# Intermediate event-extraction outputs
+event_collector/matching_emails.csv
+event_collector/matching_emails.txt
+event_collector/gpt3_5_turbo.csv
+event_collector/gpt3_5_turbo.jsonl
+event_collector/incidents_only.csv
+event_collector/incidents_dedup.csv
+event_collector/incidents_completed.csv
