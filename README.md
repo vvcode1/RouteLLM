@@ -181,10 +181,6 @@ Training JSON/JSONL records used by the current scripts contain the fields:
 }
 ```
 
-The data processor is currently a library/demo module rather than a complete
-command-line pipeline. Dataset assembly and train/test splitting should be
-made explicit in the final release.
-
 ### 6. Train the tokenizer and routing adapter
 
 Tokenizer experiment:
@@ -232,18 +228,6 @@ python inference/inference.py \
 The base model is not included in this repository. Access to
 `meta-llama/Meta-Llama-3.1-8B-Instruct` or a compatible local copy is required.
 
-
-## Data and responsible use
-
-The pipeline processes public operator discussions that may contain names,
-email addresses, and operational details. Follow the paper's ethics process and
-applicable archive terms when redistributing raw messages. Prefer releasing
-validated incident records with clear provenance over republishing entire mail
-archives.
-
-ROUTE LLM is a research system and should not be treated as an autonomous
-authority for routing-security mitigation. Model outputs require validation by
-network operators or routing-security experts.
 
 ## License
 
