@@ -115,11 +115,11 @@ responses and removes duplicates.
 ```bash
 export OPENAI_API_KEY="your-api-key"
 python llm_process.py \
-  --input event_collector/matching_emails.csv
+  --input matching_emails.csv
 python event_extractor.py
 ```
 
-Use `python event_collector/llm_process.py --help` to configure the model,
+Use `python llm_process.py --help` to configure the model,
 input, output, timeout, and request delay. 
 
 To complete missing prefix and victim-AS fields with IRR data:
@@ -146,6 +146,7 @@ Time, Victim, Attacker, Prefix, Category
 Use one row per prefix when an event contains multiple prefixes.
 
 ```bash
+cd ..
 python bgp_fetcher/bgp_anomaly_collector.py \
   --events /path/to/verified_events.csv \
   --collector route-views4 \
