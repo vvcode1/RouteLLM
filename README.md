@@ -1,4 +1,4 @@
-# ROUTE LLM
+# ROUTELLM
 
 ROUTELLM is a research prototype for discovering real-world Border Gateway
 Protocol (BGP) incidents and detecting routing anomalies with a
@@ -11,7 +11,7 @@ routing-domain-adapted large language model.
 | --- | --- |
 | `mail_scraper/` | Collects mailing-list messages and routing-security blog posts from NANOG, AusNOG, RIPE NCC, NZNOG, ITNOG, SAFNOG, SGNOG, APNIC, MANRS, Cloudflare, and related sources. |
 | `event_collector/` | Filters messages with routing-security keywords, invokes an LLM to extract structured incidents, deduplicates results, and completes missing prefix/ASN fields using IRR data. |
-| `event_collector/event.csv` | Anomaly-event dataset extracted and normalized by the event-collection pipeline. |
+| `event_collector/events/event.csv` | Anomaly-event dataset extracted and normalized by the event-collection pipeline. |
 | `bgp_fetcher/` | Downloads RouteViews updates around each event and selects messages related to the reported prefix and ASNs. |
 | `data processor/` | Parses `bgpdump` output, converts BGP updates and AS relationships into text, and builds records for training or inference. |
 | `routing_adapter/` | Contains SentencePiece tokenizer experiments and full/LoRA fine-tuning scripts. |
@@ -19,11 +19,9 @@ routing-domain-adapted large language model.
 
 ## Installation
 
-### Python environment
+### Environment 
 
-Python 3.10 or newer is required. A CUDA-capable Linux environment is strongly
-recommended for model training and inference; the collection and processing
-utilities can run on CPU-only systems.
+The experiments were conducted with Python 3.12, PyTorch 2.1.2, CUDA 12.1, and Ubuntu 22.04 LTS.
 
 ```bash
 python3 -m venv .venv
@@ -46,7 +44,7 @@ Parts of the pipeline also require:
 - `curl`, `wget`, and `bzip2` for downloading routing archives and IRR data;
 - `bgpdump`, or the compatible `bgpd` binary used by
   `bgp_fetcher/bgp_anomaly_collector.py`, for parsing MRT/BGP archives;
-- access to the Llama 3.1 8B Instruct base model for training and inference;
+- access to the Llama-3.1-8B-Instruct base model for training and inference;
 - an LLM API credential for the incident-extraction stage.
 
 Never commit API credentials. Store them in environment variables such as
@@ -123,9 +121,7 @@ python event_collector/event_extractor.py
 ```
 
 Use `python event_collector/llm_process.py --help` to configure the model,
-input, output, timeout, and request delay. The intended outputs are
-`gpt3_5_turbo.csv`, `gpt3_5_turbo.jsonl`, `incidents_only.csv`, and
-`incidents_dedup.csv`.
+input, output, timeout, and request delay. 
 
 To complete missing prefix and victim-AS fields with IRR data:
 
