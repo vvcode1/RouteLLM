@@ -230,8 +230,3 @@ The base model is not included in this repository. Access to
 The repository's original code and included LoRA adapter are licensed under the
 [Apache License 2.0](LICENSE). The Meta Llama 3.1 base model is not included and
 is governed by Meta's separate license and acceptable-use terms.
-
-## Citation
-
-Citation metadata will be added after the paper's final bibliographic details
-are available.
