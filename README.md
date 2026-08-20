@@ -57,7 +57,6 @@ Model and routing-data locations can be configured without editing source code:
 export ROUTE_LLM_BASE_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
 export ROUTE_LLM_ADAPTER="models/route-llm-llama3.1-8b-instruct-lora"
 export ROUTE_LLM_AS_RELATIONSHIPS="data/as-relationships/20241201.as-rel.txt"
-export ROUTE_LLM_EXTRACTION_MODEL="o4-mini"
 ```
 
 ## Pipeline
@@ -115,9 +114,9 @@ responses and removes duplicates.
 
 ```bash
 export OPENAI_API_KEY="your-api-key"
-python event_collector/llm_process.py \
+python llm_process.py \
   --input event_collector/matching_emails.csv
-python event_collector/event_extractor.py
+python event_extractor.py
 ```
 
 Use `python event_collector/llm_process.py --help` to configure the model,
